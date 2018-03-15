@@ -1,0 +1,142 @@
+https://km3.capgemini.com/asset/1049105 
+http://hadooptutorial.info/partitioning-in-hive/
+
+select m.movie_name from comedy m
+CLUSTERED BY m.movie_name 
+; 
+
+
+
+create table comedynew3 (id INT, movie_name STRING,year INT, month STRING, day INT)
+row format delimited
+fields terminated by ','
+stored as TEXTFILE
+;
+
+
+create table comedyNew (id INT, movie_name STRING)
+PARTITIONED by (release_date STRING)
+row format delimited
+fields terminated by ','
+stored as TEXTFILE
+;
+
+
+load data local inpath '/home/cloudera/Desktop/Hive/comedy.txt' into table comedy
+PARTITION (release_date = 'US', state = 'CA');;
+
+load data inpath '/user/training/shakepher/comedy.txt' into table comedyNew;
+
+
+load data local inpath '/home/cloudera/Desktop/Hive/comedy.txt' into table comedynew2;
+
+
+
+set hive.exec.dynamic.partition=true;
+set hive.exec.dynamic.partition.mode=nonstrict;
+
+by default dynamic partition is desabled.(hive_site.xml)
+
+
+insert into table comedtnew partition (release_date)
+select * from comedynew2;
+
+
+
+
+create table comedynew3 (id INT, movie_name STRING,
+row format delimited
+fields terminated by ','
+stored as TEXTFILE
+;
+
+
+create table comedyNew4_part (id INT, movie_name STRING)
+PARTITIONED by (year INT, month STRING, day INT)
+row format delimited
+fields terminated by ','
+stored as TEXTFILE
+;
+
+
+load data local inpath '/home/cloudera/Desktop/Hive/comedy.txt' into table comedynew3;
+
+
+insert into table comedynew4_part partition (year, month, day)
+select * from comedynew3;
+
+
+SHOW PARTITIONS comedynew4_part;
+
+
+ DESCRIBE FORMATTED comedynew4_part;PARTITION((year, month, day);
+
+
+static partition
+load data inpath 'filepath' into table <tablename> partition (release_date = 'Date')
+load data local inpath '/home/cloudera/Desktop/Hive/comedy.txt into table comedynew4_part partition (year=1996, month="Mar", day=8)
+---------------------
+Buckting
+
+
+set hive.enforce.bucketing=true
+set hive.enforce.sorting=true
+
+create table action_new (id iNT, movie_name STRING)
+PARTITIONED by (release_date STRING)
+clustered by (movie_name) 
+into 2 BUCKETS;
+
+
+create table action_new_part (id iNT, movie_name STRING)
+PARTITIONED by (release_date STRING)
+clustered by (movie_name) 
+into 2 BUCKETS;
+
+
+create table action_new (id INT, movie_name STRING,release_date STRING)
+row format delimited
+fields terminated by ','
+stored as TEXTFILE
+;
+
+load data local inpath '/home/cloudera/Desktop/Hive/actionNew.txt' into table actionNew;
+
+insert into table actionNew_part partition (release_date)
+select * from actionNew;
+
+
+-------------------
+ORC
+
+Parquet
+
+create table actionorc(id INT, movie_name STRING, release_date STRING, imdb STRING)
+     STORED AS ;
+
+
+insert into actionorc  select * from action;
+
+create table actionParquet_new2 (id INT, movie_name STRING, release_date STRING, imdb STRING)
+     STORED AS  Parquet tblproperties ("parquet.compression"="SNAPPY");;
+
+
+insert into actionParquet select * from action;
+
+
+set parquet.compression=GZIP;
+
+https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/
+
+
+https://www.cloudera.com/documentation/enterprise/5-8-x/topics/cdh_ig_parquet.html#topic_26_2 
+    
+
+
+
+[?3/?14/?2018 12:05 PM]  
+cp /usr/lib/hive/conf/hive-site.xml /usr/lib/spark/conf/ 
+ 
+[?3/?14/?2018 12:05 PM]  
+su -
+ 

@@ -1,0 +1,7 @@
+import org.apache.spark.sql.SQLContext
+import org.apache.spark.sql.SQLContext._
+val data = sqlContext.read.json("/user/training/student.json")
+
+val df= data.registerTempTable("FinalDF")
+
+data.show();

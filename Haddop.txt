@@ -1,0 +1,207 @@
+[cloudera@quickstart ~]$ ll
+total 188
+-rwxrwxr-x 1 cloudera cloudera  5387 Jul 19  2017 cloudera-manager
+-rwxrwxr-x 1 cloudera cloudera  9964 Jul 19  2017 cm_api.py
+drwxrwxr-x 3 cloudera cloudera  4096 Mar  4 22:37 Desktop
+drwxrwxr-x 4 cloudera cloudera  4096 Jul 19  2017 Documents
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Downloads
+drwxrwsr-x 9 cloudera cloudera  4096 Feb 19  2015 eclipse
+-rw-rw-r-- 1 cloudera cloudera 53655 Jul 19  2017 enterprise-deployment.json
+-rw-rw-r-- 1 cloudera cloudera 50515 Jul 19  2017 express-deployment.json
+-rwxrwxr-x 1 cloudera cloudera  5007 Jul 19  2017 kerberos
+drwxrwxr-x 2 cloudera cloudera  4096 Jul 19  2017 lib
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Music
+-rwxrwxr-x 1 cloudera cloudera  4228 Jul 19  2017 parcels
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Pictures
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Public
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Templates
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Videos
+drwxrwxr-x 4 cloudera cloudera  4096 Jul 19  2017 workspace
+[cloudera@quickstart ~]$ pwd
+/home/cloudera
+[cloudera@quickstart ~]$ hadoop fs -ls /
+Found 6 items
+drwxrwxrwx   - hdfs  supergroup          0 2017-07-19 06:29 /benchmarks
+drwxr-xr-x   - hbase supergroup          0 2018-03-04 21:33 /hbase
+drwxr-xr-x   - solr  solr                0 2017-07-19 06:31 /solr
+drwxrwxrwt   - hdfs  supergroup          0 2018-03-04 21:32 /tmp
+drwxr-xr-x   - hdfs  supergroup          0 2017-07-19 06:31 /user
+drwxr-xr-x   - hdfs  supergroup          0 2017-07-19 06:31 /var
+[cloudera@quickstart ~]$ hadoop fs -ls /user
+Found 8 items
+drwxr-xr-x   - cloudera cloudera            0 2017-07-19 06:28 /user/cloudera
+drwxr-xr-x   - mapred   hadoop              0 2017-07-19 06:29 /user/history
+drwxrwxrwx   - hive     supergroup          0 2017-07-19 06:31 /user/hive
+drwxrwxrwx   - hue      supergroup          0 2017-07-19 06:30 /user/hue
+drwxrwxrwx   - jenkins  supergroup          0 2017-07-19 06:29 /user/jenkins
+drwxrwxrwx   - oozie    supergroup          0 2017-07-19 06:30 /user/oozie
+drwxrwxrwx   - root     supergroup          0 2017-07-19 06:29 /user/root
+drwxr-xr-x   - hdfs     supergroup          0 2017-07-19 06:31 /user/spark
+[cloudera@quickstart ~]$ hadoop fs -ls //user/hive
+ls: No FileSystem for scheme: null
+[cloudera@quickstart ~]$ hadoop fs -ls /user/hive
+Found 1 items
+drwxrwxrwx   - hive supergroup          0 2017-07-19 06:31 /user/hive/warehouse
+[cloudera@quickstart ~]$ hadoop fs -mkdir /user/training
+[cloudera@quickstart ~]$ pwd
+/home/cloudera
+[cloudera@quickstart ~]$ cd /Desk/homeop
+bash: cd: /Desk/homeop: No such file or directory
+[cloudera@quickstart ~]$ cd /home
+[cloudera@quickstart home]$ ll
+total 4
+drwxrwxr-x 27 cloudera cloudera 4096 Mar  4 22:41 cloudera
+[cloudera@quickstart home]$ cd cloudera
+[cloudera@quickstart ~]$ ll
+total 188
+-rwxrwxr-x 1 cloudera cloudera  5387 Jul 19  2017 cloudera-manager
+-rwxrwxr-x 1 cloudera cloudera  9964 Jul 19  2017 cm_api.py
+drwxrwxr-x 4 cloudera cloudera  4096 Mar  4 22:41 Desktop
+drwxrwxr-x 4 cloudera cloudera  4096 Jul 19  2017 Documents
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Downloads
+drwxrwsr-x 9 cloudera cloudera  4096 Feb 19  2015 eclipse
+-rw-rw-r-- 1 cloudera cloudera 53655 Jul 19  2017 enterprise-deployment.json
+-rw-rw-r-- 1 cloudera cloudera 50515 Jul 19  2017 express-deployment.json
+-rwxrwxr-x 1 cloudera cloudera  5007 Jul 19  2017 kerberos
+drwxrwxr-x 2 cloudera cloudera  4096 Jul 19  2017 lib
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Music
+-rwxrwxr-x 1 cloudera cloudera  4228 Jul 19  2017 parcels
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Pictures
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Public
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Templates
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Videos
+drwxrwxr-x 4 cloudera cloudera  4096 Jul 19  2017 workspace
+[cloudera@quickstart ~]$ cd Desktop
+[cloudera@quickstart Desktop]$ ll
+total 28
+drwxrwxr-x 2 cloudera cloudera 4096 Mar  4 22:41 Doc
+-rwxrwxr-x 1 cloudera cloudera  281 Jul 19  2017 Eclipse.desktop
+-rwxrwxr-x 1 cloudera cloudera  284 Jul 19  2017 Enterprise.desktop
+-rwxrwxr-x 1 cloudera cloudera  259 Jul 19  2017 Express.desktop
+-rwxrwxr-x 1 cloudera cloudera  238 Jul 19  2017 Kerberos.desktop
+-rwxrwxr-x 1 cloudera cloudera  237 Jul 19  2017 Parcels.desktop
+drwxrwxrwx 3 cloudera cloudera 4096 Mar  4 22:37 Tanya_Docs
+[cloudera@quickstart Desktop]$ ll
+total 28
+drwxrwxr-x 2 cloudera cloudera 4096 Mar  4 22:41 Doc
+-rwxrwxr-x 1 cloudera cloudera  281 Jul 19  2017 Eclipse.desktop
+-rwxrwxr-x 1 cloudera cloudera  284 Jul 19  2017 Enterprise.desktop
+-rwxrwxr-x 1 cloudera cloudera  259 Jul 19  2017 Express.desktop
+-rwxrwxr-x 1 cloudera cloudera  238 Jul 19  2017 Kerberos.desktop
+-rwxrwxr-x 1 cloudera cloudera  237 Jul 19  2017 Parcels.desktop
+drwxrwxrwx 3 cloudera cloudera 4096 Mar  4 22:37 Tanya_Docs
+[cloudera@quickstart Desktop]$ cd ..
+[cloudera@quickstart ~]$ ll
+total 188
+-rwxrwxr-x 1 cloudera cloudera  5387 Jul 19  2017 cloudera-manager
+-rwxrwxr-x 1 cloudera cloudera  9964 Jul 19  2017 cm_api.py
+drwxrwxr-x 4 cloudera cloudera  4096 Mar  4 22:41 Desktop
+drwxrwxr-x 4 cloudera cloudera  4096 Jul 19  2017 Documents
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Downloads
+drwxrwsr-x 9 cloudera cloudera  4096 Feb 19  2015 eclipse
+-rw-rw-r-- 1 cloudera cloudera 53655 Jul 19  2017 enterprise-deployment.json
+-rw-rw-r-- 1 cloudera cloudera 50515 Jul 19  2017 express-deployment.json
+-rwxrwxr-x 1 cloudera cloudera  5007 Jul 19  2017 kerberos
+drwxrwxr-x 2 cloudera cloudera  4096 Jul 19  2017 lib
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Music
+-rwxrwxr-x 1 cloudera cloudera  4228 Jul 19  2017 parcels
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Pictures
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Public
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Templates
+drwxr-xr-x 2 cloudera cloudera  4096 Mar  4 21:34 Videos
+drwxrwxr-x 4 cloudera cloudera  4096 Jul 19  2017 workspace
+[cloudera@quickstart ~]$ ls Desktop/Doc
+comedies  glossary  histories  poems  tragedies
+[cloudera@quickstart ~]$ hadoop fs -pwd
+-pwd: Unknown command
+[cloudera@quickstart ~]$ clear
+
+[cloudera@quickstart ~]$ hadoop fs -cp Desktop/Doc/comedies /user/training/
+cp: `Desktop/Doc/comedies': No such file or directory
+[cloudera@quickstart ~]$ cd Desktop/
+[cloudera@quickstart Desktop]$ 
+[cloudera@quickstart Desktop]$ 
+[cloudera@quickstart Desktop]$ ll
+total 28
+drwxrwxr-x 2 cloudera cloudera 4096 Mar  4 22:41 Doc
+-rwxrwxr-x 1 cloudera cloudera  281 Jul 19  2017 Eclipse.desktop
+-rwxrwxr-x 1 cloudera cloudera  284 Jul 19  2017 Enterprise.desktop
+-rwxrwxr-x 1 cloudera cloudera  259 Jul 19  2017 Express.desktop
+-rwxrwxr-x 1 cloudera cloudera  238 Jul 19  2017 Kerberos.desktop
+-rwxrwxr-x 1 cloudera cloudera  237 Jul 19  2017 Parcels.desktop
+drwxrwxrwx 3 cloudera cloudera 4096 Mar  4 22:37 Tanya_Docs
+[cloudera@quickstart Desktop]$ cd Doc
+[cloudera@quickstart Doc]$ ll
+total 5228
+-rwxrw-rw- 1 cloudera cloudera 1784616 Mar  4 22:32 comedies
+-rwxrw-rw- 1 cloudera cloudera   58976 Mar  4 22:32 glossary
+-rwxrw-rw- 1 cloudera cloudera 1479035 Mar  4 22:32 histories
+-rwxrw-rw- 1 cloudera cloudera  268140 Mar  4 22:32 poems
+-rwxrw-rw- 1 cloudera cloudera 1752440 Mar  4 22:32 tragedies
+[cloudera@quickstart Doc]$ pwd
+/home/cloudera/Desktop/Doc
+[cloudera@quickstart Doc]$ hadoop fs -put Desktop/Doc/comedies /user/training/
+put: `Desktop/Doc/comedies': No such file or directory
+[cloudera@quickstart Doc]$ hadoop fs -put /home/cloudera/Desktop/Doc/comedies /user/training/
+[cloudera@quickstart Doc]$ hadoop fs -copyFromLocal /home/cloudera/Desktop/Doc/glossary /user/training/
+[cloudera@quickstart Doc]$ hadoop fs -get /user/training/comedies /home/cloudera/Desktop
+[cloudera@quickstart Doc]$ hadoop fs -copyToLocal /user/training/glossary /home/cloudera/Desktop
+[cloudera@quickstart Doc]$ hadoop fs -rm /user/training/comedies
+Deleted /user/training/comedies
+[cloudera@quickstart Doc]$ cd prasanna.jawalkar@capgemini.com
+bash: cd: prasanna.jawalkar@capgemini.com: No such file or directory
+[cloudera@quickstart Doc]$ cd /user/training/comedies
+bash: cd: /user/training/comedies: No such file or directory
+[cloudera@quickstart Doc]$ cd /user/training
+bash: cd: /user/training: No such file or directory
+[cloudera@quickstart Doc]$ ll
+total 5228
+-rwxrw-rw- 1 cloudera cloudera 1784616 Mar  4 22:32 comedies
+-rwxrw-rw- 1 cloudera cloudera   58976 Mar  4 22:32 glossary
+-rwxrw-rw- 1 cloudera cloudera 1479035 Mar  4 22:32 histories
+-rwxrw-rw- 1 cloudera cloudera  268140 Mar  4 22:32 poems
+-rwxrw-rw- 1 cloudera cloudera 1752440 Mar  4 22:32 tragedies
+[cloudera@quickstart Doc]$ cd /user/training
+bash: cd: /user/training: No such file or directory
+[cloudera@quickstart Doc]$ hadoop fs -rm -r /user/training
+Deleted /user/training
+[cloudera@quickstart Doc]$ hadoop fs --ls /user
+--ls: Unknown command
+[cloudera@quickstart Doc]$ hadoop fs -ls /user
+Found 8 items
+drwxr-xr-x   - cloudera cloudera            0 2017-07-19 06:28 /user/cloudera
+drwxr-xr-x   - mapred   hadoop              0 2017-07-19 06:29 /user/history
+drwxrwxrwx   - hive     supergroup          0 2017-07-19 06:31 /user/hive
+drwxrwxrwx   - hue      supergroup          0 2017-07-19 06:30 /user/hue
+drwxrwxrwx   - jenkins  supergroup          0 2017-07-19 06:29 /user/jenkins
+drwxrwxrwx   - oozie    supergroup          0 2017-07-19 06:30 /user/oozie
+drwxrwxrwx   - root     supergroup          0 2017-07-19 06:29 /user/root
+drwxr-xr-x   - hdfs     supergroup          0 2017-07-19 06:31 /user/spark
+[cloudera@quickstart Doc]$ hadoop fs -mkdir /user/training
+[cloudera@quickstart Doc]$ hadoop fs -put Desktop/Doc/comedies /user/training/
+put: `Desktop/Doc/comedies': No such file or directory
+[cloudera@quickstart Doc]$ hadoop fs -put * /user/training/
+[cloudera@quickstart Doc]$ ll
+total 5228
+-rwxrw-rw- 1 cloudera cloudera 1784616 Mar  4 22:32 comedies
+-rwxrw-rw- 1 cloudera cloudera   58976 Mar  4 22:32 glossary
+-rwxrw-rw- 1 cloudera cloudera 1479035 Mar  4 22:32 histories
+-rwxrw-rw- 1 cloudera cloudera  268140 Mar  4 22:32 poems
+-rwxrw-rw- 1 cloudera cloudera 1752440 Mar  4 22:32 tragedies
+[cloudera@quickstart Doc]$ hadoop fs -mkdir /user/training1
+[cloudera@quickstart Doc]$ hadoop fs -cp /user/training/comedies /user/training1
+[cloudera@quickstart Doc]$ hadoop fs -ls /user/training1
+Found 1 items
+-rw-r--r--   1 cloudera supergroup    1784616 2018-03-04 23:38 /user/training1/comedies
+[cloudera@quickstart Doc]$ hadoop fs -mv /user/training/glossary /user/training1
+[cloudera@quickstart Doc]$ hadoop fs -ls /user/training1
+Found 2 items
+-rw-r--r--   1 cloudera supergroup    1784616 2018-03-04 23:38 /user/training1/comedies
+-rw-r--r--   1 cloudera supergroup      58976 2018-03-04 23:35 /user/training1/glossary
+[cloudera@quickstart Doc]$ hadoop fs -ls /user/training
+Found 4 items
+-rw-r--r--   1 cloudera supergroup    1784616 2018-03-04 23:35 /user/training/comedies
+-rw-r--r--   1 cloudera supergroup    1479035 2018-03-04 23:35 /user/training/histories
+-rw-r--r--   1 cloudera supergroup     268140 2018-03-04 23:35 /user/training/poems
+-rw-r--r--   1 cloudera supergroup    1752440 2018-03-04 23:35 /user/training/tragedies
+[cloudera@quickstart Doc]$ hadoop fs -cp /user/tra

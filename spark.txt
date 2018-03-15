@@ -1,0 +1,16 @@
+spark-submit --class "Hortonworks.SparkTutorial.Main" --master local ./SparkTutorial-1.0-SNAPSHOT.jar
+
+
+spark-submit --class "com.ashish.spark.basics.rdds.SparkWordCount" --master local ./spark-basic.jar
+
+
+spark-submit --class com.ashish.spark.basics.rdds.SparkWordCount --master local --deploy-mode client --executor-memory 1g --name wordcount --conf "spark.app.id=wordcount" spark-basic.jar /user/training/poems /user/training/sparkxxx
+
+
+https://data-flair.training/blogs/apache-spark-map-vs-flatmap/
+
+import sqlContext.implicits._
+case class Comdey(id:Integer,name:String)
+val people = sc.textFile("/user/training/action.txt").map(_.split(",")).map(p => Comdey(p(0).toInt, p(1))).toDF()
+people.registerTempTable("student")
+val q1= sqlContext.sql("select * from student")

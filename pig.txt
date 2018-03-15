@@ -1,0 +1,75 @@
+Pig
+
+
+bag1 = load '/user/hive/warehouse/action/action.txt' using PigStorage(',');
+
+dump bag1;
+
+
+describe bag1;
+
+
+bag2 = load '/user/hive/warehouse/action/action.txt' using PigStorage(',') as (id:int, movie_name:chararray, release_date:chararray, imdb);
+
+mismatce datatype will occure either exception or null
+
+
+bag2 = load '/user/hive/warehouse/action/action.txt' using PigStorage(',') as (id:int, movie_name:chararray, release_date:chararray, imdb);
+
+mismatce datatype will occure either exception or null
+
+
+
+?Men+with+Guns+(1997/I))
+(1657,Target (1995),28-Feb-1996,http://us.imdb.com/M/title-exact?Target%20(1995))
+(1673,Mirage (1995),01-Jan-1995,http://us.imdb.com/M/title-exact?Mirage%20(1995))
+grunt> bag2 = load '/user/hive/warehouse/action/action.txt' using PigStorage(',') as (id integer, movie_name chararray, release_date chararray, imdb);
+2018-03-08 01:33:27,612 [main] ERROR org.apache.pig.tools.grunt.Grunt - ERROR 1200: <line 2, column 82>  mismatched input 'integer' expecting RIGHT_PAREN
+Details at logfile: /home/cloudera/pig_1520501270560.log
+grunt> bag2 = load '/user/hive/warehouse/action/action.txt' using PigStorage(',') as (id:int, movie_name:chararray, release_date:chararray, imdb);
+2018-03-08 01:34:19,848 [main] INFO  org.apache.hadoop.conf.Configuration.deprecation - fs.default.name is deprecated. Instead, use fs.defaultFS
+2018-03-08 01:34:19,848 [main] INFO  org.apache.hadoop.conf.Configuration.deprecation - mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+grunt> describe bag2;
+bag2: {id: int,movie_name: chararray,release_date: chararray,imdb: bytearray}
+grunt> describe bag1;
+Schema for bag1 unknown.
+grunt> bag3 = load '/user/hive/warehouse/action/action.txt' using PigStorage(',') as (id:int, movie_name:chararray, release_date:chararray, imdb);
+grunt> result  = foreach bag3 generate (int) movie_name;
+
+
+
+https://www.qubole.com/resources/pig-function-cheat-sheet/
+
+
+positional
+
+
+
+store result into '/user/training/pig1' using PigStorage('|');
+result  = foreach bag3 generate $0,$1,release_date;
+
+
+
+	Filter
+		Group by
+	Union
+
+
+-------------
+bag3 = group bag1 by release_date;
+
+
+bag4 = foreach (group bag1 by release_Date) generate group as date, bag1.movie_name;
+
+bag5 = join bag3 by group<columnbag>, bag4 by date;
+
+bag6 = for (join bag3 by $0, bag4 by $0) generate bag3::group, $3;
+
+bag = for (join bag3 by $0, bag4 by $0) generate bag3::group, bag3::bag1.id;
+
+
+bag7 = foreach bag6 generate $0, FLATEN($1);
+
+09-JAN-2017
+
+SPLIT bag7 into bag_1 if(SUBSTRING($0,7,10)=='1996'),bag_2 if(SUBSTRING($0,7,10)=='1997') , bag_3 otherwise;

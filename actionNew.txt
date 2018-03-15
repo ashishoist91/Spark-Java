@@ -1,0 +1,23 @@
+1,Toy Story (1995),01-Jan-1995
+4,Get Shorty (1995),01-Jan-1995
+8,Babe (1995),01-Jan-1995
+13,Mighty Aphrodite (1995)
+16,French Twist (Gazon maudit) (1995),01-Jan-1995
+17,From Dusk Till Dawn (1996),05-Feb-1996
+21,Muppet Treasure Island (1996),16-Feb-1996
+25,Birdcage The (1996),08-Mar-1996
+26,Brothers McMullen The (1995)
+29,Batman Forever (1995),01-Jan-1995
+34,Doom Generation The (1995),01-Jan-1995
+40,To Wong Foo Thanks for Everything! Julie Newmar (1995),01-Jan-1995
+41,Billy Madison (1995),01-Jan-1995
+42,Clerks (1994),01-Jan-1994
+45,Eat Drink Man Woman (1994
+47,Ed Wood (1994),01-Jan-1994
+49,I.Q. (1994),01-Jan-1994
+63,Santa Clause The (1994),01-Jan-1994
+65,What's Eating Gilbert Grape (1993),01-Jan-1993
+66,While You Were Sleeping (1995),01-Jan-1995,
+67,Ace Ventura: Pet Detective (1994),01-Jan-1994
+69,Forrest Gump (1994),01-Jan-1994
+70,Four Weddings and a Funeral (1994),01-Jan-1994
