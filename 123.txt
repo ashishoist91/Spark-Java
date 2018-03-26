@@ -5,3 +5,4 @@ val data = sqlContext.read.json("/user/training/student.json")
 val df= data.registerTempTable("FinalDF")
 
 data.show();
+https://github.com/clumdee/Python-and-Spark-for-Big-Data-master/tree/master/Spark_DataFrames
