@@ -1,0 +1,56 @@
+							Welcome to Edureka VM !!
+
+- root user password is "edureka"
+- Spark libraries (jars) to add in Scala IDE could be found @ /home/edureka/spark-1.5.2/core/target. Main jar file(s) : spark-core_2.10-1.5.2.jar 
+
+									
+
+
+Below are important points about this VM, please go through it without fail.
+
+1) Path of all the components in the VM
+	
+		JDK        : /usr/lib/jvm/jdk1.7.0_67
+		scala ide  : /home/edureka/Desktop/eclipse
+		hadoop     : /usr/lib/hadoop-2.2.0
+		spark	   : /home/edureka/spark-1.5.2
+		scala	   : /home/edureka/spark-1.5.2/build/scala-2.10.4	
+		hive	   : /usr/lib/hive-0.13.1-bin
+		sbt	   : /home/edureka/.sbt
+		mvn	   : /home/edureka/spark-1.5.2/build/apache-maven-3.3.3
+		kafka	   : /home/edureka/kafka_2.10-0.8.2.2
+		zookeeper  : /home/edureka/zookeeper-3.3.6
+
+2) The paths of all the components are set.
+
+		JDK        : .bashrc	
+		hadoop     : .bashrc 
+		spark	   : .bashrc
+		scala	   : .bashrc
+		mvn	   : .bashrc
+		hive	   : .bashrc
+		kafka	   : .bashrc
+		zookeeper  : .bashrc
+
+3) Scala IDE (Eclipse) is present on the Desktop.
+
+4) Sometime when you do sudo jps, you will find all the hadoop daemons are not running. So to solve this issue, execute below commands one by one in your terminal. And then check if all the hadoop daemons are up or not.  
+  
+		sudo service hadoop-master stop  
+  
+		sudo service hadoop-master start  
+  
+		hadoop dfsadmin -safemode leave  
+
+5) To start spark shell, use the below commands.
+
+		cd spark-1.5.2/
+
+		./bin/spark-shell
+
+6) When you are trying to access HDFS, you may get “NameNode is in SafeMode”. 
+   Then go to terminal and give the command “ hadoop dfsadmin -safemode leave “ . 
+   Now go and check your HDFS.
+
+7) When you are closing the VM, use the option "Save the machine state", so that when you restart the VM you 
+    are at same place where you left and all your daemons are running.
