@@ -6,3 +6,5 @@ val df= data.registerTempTable("FinalDF")
 
 data.show();
 https://github.com/clumdee/Python-and-Spark-for-Big-Data-master/tree/master/Spark_DataFrames
+
+<h1 style="font-size:40px;color: white;text-align: center;font-family: 'Times New Roman'">Intranet Communique</h1><!-- <img src="images/logoback.jpg" align="bottom"border="0" > --></td>
