@@ -21,3 +21,4 @@ https://www.nodalpoint.com/development-and-deployment-of-spark-applications-with
 
 
 https://dzone.com/articles/how-configure-mysql-metastore
+AILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. MetaException(message:file:/user/hive/warehouse/stockprices is not a directory or unable to create one)
