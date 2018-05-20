@@ -57,7 +57,7 @@ public class MySQLoHiveDataIngestion {
 			//logger.info("Data :  "+ frame.collectAsList().forEach(r -> System.out.println(r)));
 		}
 		
-		DataFrame createNewDataFrame = hiveContext.createDataFrame(new ArrayList<Row>(), getSchema());
+		DataFrame createNewDataFrame = hiveContext.createDataFrame(frame.collectAsList(), getSchema());
 		logger.info("Creating Empty DataFrame");
 		createNewDataFrame.printSchema();
 		
