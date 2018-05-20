@@ -16,7 +16,10 @@ import org.apache.spark.sql.DataFrame;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SQLContext;
 import org.apache.spark.sql.hive.HiveContext;
+import org.apache.spark.sql.types.DataType;
 import org.apache.spark.sql.types.DataTypes;
+import org.apache.spark.sql.types.StructField;
+import org.apache.spark.sql.types.StructType;
 
 public class MySQLoHiveDataIngestion {
 
@@ -54,8 +57,9 @@ public class MySQLoHiveDataIngestion {
 			//logger.info("Data :  "+ frame.collectAsList().forEach(r -> System.out.println(r)));
 		}
 		
-		//frame.
-		
+		DataFrame createNewDataFrame = hiveContext.createDataFrame(new ArrayList<Row>(), getSchema());
+		logger.info("Creating Empty DataFrame");
+		createNewDataFrame.printSchema();
 		
 		//result.show();
 		//result.printSchema();
@@ -140,7 +144,60 @@ public class MySQLoHiveDataIngestion {
 		return null;
 	}
 	
+	public static DataType getDataType(String dataType) {
+		
+		if (dataType == "STRING" || dataType == "CHAR" || dataType == "VARCHAR2" || dataType == "VARCHAR") {
+	        return  DataTypes.StringType;
+	    } else if (dataType == "INT") {
+	        return DataTypes.IntegerType;
+	    } else if (dataType == "LONG") {
+	        return DataTypes.LongType;
+	    } else if (dataType == "FLOAT") {
+	        return DataTypes.FloatType;
+	    } else if (dataType == "DOUBLE") {
+	        return DataTypes.DoubleType;
+	    } else if (dataType == "BOOLEAN") {
+	        return DataTypes.BooleanType;
+	    } else if (dataType == "BYTE") {
+	        return DataTypes.BooleanType;
+	    } else if (dataType == "DECIMAL") {
+	    	return DataTypes.DoubleType;
+	    }else if (dataType == "DATE") {
+	    	return DataTypes.DateType;
+	    }
+		
+		
+		return null;
+	}
 	
+	
+	public static StructType getSchema() {
+
+	    String schemaString = "column1 column2 column3 column4 column5";
+
+	    List<StructField> fields = new ArrayList<StructField>();
+
+	    StructField field = null;
+
+	    for (Map.Entry<String,String> entry : columnDetails.entrySet()) {
+	    	 System.out.println("Key = " + entry.getKey() +
+                     ", Value = " + entry.getValue());
+	    	 
+	    	 field = DataTypes.createStructField(entry.getKey(), getDataType(entry.getValue()), true);
+	    	 
+	    }
+           
+	    
+	    
+//	    for (String fieldName : schemaString.split(" ")) {
+//	        StructField field = DataTypes.createStructField(fieldName, DataTypes.StringType, true);
+//	        fields.add(field);
+//	    }
+
+	    StructType schema = DataTypes.createStructType(fields);
+
+	    return schema;
+	}
 	
 	
 	
