@@ -38,11 +38,11 @@ public class MySQLoHiveDataIngestion {
 		//SparkContext sqlContext = new org.apache.spark.sql.SQLContext(javaSparkContext);
 		HiveContext hiveContext = new HiveContext(javaSparkContext);
 		Properties props = new Properties();
-		props.setProperty("user", "admin");
+		props.setProperty("user", "root");
 		props.setProperty("password", "admin");
 		//Dataset<Row> result = hiveContext.read().jdbc("jdbc:mysql://localhost:3306/hadoop", "transaction", props);;
 		
-		DataFrame result = hiveContext.read().jdbc("jdbc:mysql://localhost:3306/hadoop", "transaction", props);
+		//DataFrame result = hiveContext.read().jdbc("jdbc:mysql://localhost:3306/hadoop", "transaction", props);
 		
 		Map<String, String> options = new HashMap<String, String>();
 		options.put("url", "jdbc:mysql://localhost:3306/hadoop");
@@ -72,9 +72,9 @@ public class MySQLoHiveDataIngestion {
 		DataFrame newTable = hiveContext.sql(createTable);
 		
 		
-		List<Row> arrayList= new ArrayList<Row>();
-		arrayList = result.collectAsList();
-		
+//		List<Row> arrayList= new ArrayList<Row>();
+//		arrayList = result.collectAsList();
+//		
 		
 		//newTable.withColumn(result, col)
 		newTable.printSchema();
