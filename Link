@@ -28,3 +28,10 @@ Resolve : Remove *.lck file from metastore_db folder
 
 
 https://gist.github.com/jamesrajendran/b4e7a7dfceee3273ac7fa2984c9ceffe
+
+---------------------------------------------------
+http://websystique.com/spring-boot/spring-boot-war-deployment-example/
+http://www.adeveloperdiary.com/java/spring-boot/deploy-spring-boot-application-ibm-liberty-8-5/
+https://o7planning.org/en/11901/deploying-spring-boot-application-on-oracle-weblogic-server
+http://websystique.com/spring-boot/spring-boot-angularjs-spring-data-jpa-crud-app-example/
+http://websystique.com/spring-boot/spring-boot-rest-api-example/
