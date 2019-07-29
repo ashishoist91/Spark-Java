@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/47355038/how-to-generate-parquet-file-using-pure-java-including-date-decimal-types-an
+
+
+Bytes --> Decimal-->BinaryType
+
+https://spark.apache.org/docs/2.4.0/sql-data-sources-avro.html
